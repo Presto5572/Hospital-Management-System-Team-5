@@ -32,7 +32,8 @@ In addition to medical care, the hospital management system also tracks financia
 
 Finally, the Insurance entity captures details about the insurance providers, policies, and coverage periods. This entityhelps the hospital manage insurance-related claims and coverage for patients’ medical expenses.
 
-<img width="293" alt="Screenshot 2024-10-12 at 11 03 46â€¯AM" src="https://github.com/user-attachments/assets/084b627d-fa38-4feb-9abb-6495f7bad82b">
+<img width="493" alt="Screenshot 2024-10-12 at 11 03 46 AM" src="https://github.com/user-attachments/assets/590a15e7-c5e6-4211-97a5-412c754ca544">
+
 
 ## Data Dictionary
 
