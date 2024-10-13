@@ -113,7 +113,7 @@ join
 where
     prescriptionDate > firstPrescDate
 
-  + ----------- + ----------- + ------------- +
+> + ----------- + ----------- + ------------- +
 | dFname      | dLname      | doctorID      |
 + ----------- + ----------- + ------------- +
 | John        | Doe         | 4             |
