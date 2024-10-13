@@ -37,7 +37,27 @@ Finally, the Insurance entity captures details about the insurance providers, po
 
 ## Data Dictionary
 
-Insert Photos
+<img width="732" alt="Screenshot 2024-10-12 at 9 26 47 PM" src="https://github.com/user-attachments/assets/6187db65-15dd-4ca1-9fb3-285c3d3dfb4c">
+
+<img width="639" alt="Screenshot 2024-10-12 at 9 27 25 PM" src="https://github.com/user-attachments/assets/3cce9f94-4465-4f60-a18c-959e16906a00">
+
+<img width="651" alt="Screenshot 2024-10-12 at 9 27 50 PM" src="https://github.com/user-attachments/assets/35935330-dda5-428b-bcc3-7c70b6f06e04">
+
+<img width="659" alt="Screenshot 2024-10-12 at 9 28 15 PM" src="https://github.com/user-attachments/assets/1a5d3680-6c2f-4815-bdce-becc2e5d31d9">
+
+<img width="742" alt="Screenshot 2024-10-12 at 9 28 32 PM" src="https://github.com/user-attachments/assets/b0e06843-9612-4c19-b714-28dea9644cf9">
+
+<img width="524" alt="Screenshot 2024-10-12 at 9 28 53 PM" src="https://github.com/user-attachments/assets/8cb843e5-2db3-43fb-8a80-7135175792ca">
+
+<img width="629" alt="Screenshot 2024-10-12 at 9 29 24 PM" src="https://github.com/user-attachments/assets/db02a6a7-d573-45f1-bda5-d7ab64fe9e05">
+
+<img width="478" alt="Screenshot 2024-10-12 at 9 29 41 PM" src="https://github.com/user-attachments/assets/b09c55ca-5840-4c60-9495-6b376d372ca9">
+
+<img width="662" alt="Screenshot 2024-10-12 at 9 30 04 PM" src="https://github.com/user-attachments/assets/41c51349-1f0a-4b7f-875e-2d639019a40e">
+
+<img width="507" alt="Screenshot 2024-10-12 at 9 30 25 PM" src="https://github.com/user-attachments/assets/aef7b572-3070-40e9-b42f-c487d5c7dff1">
+
+<img width="570" alt="Screenshot 2024-10-12 at 9 30 41 PM" src="https://github.com/user-attachments/assets/41e1bf8d-861b-46ec-945e-cdd8e3c18d8c">
 
 ## Queries
 
