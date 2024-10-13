@@ -144,22 +144,22 @@ group by
 order by
     TotalRevenue desc
 
-+ ------------- + ----------- + ----------- + ----------------- +
-| doctorID      | dFname      | dLname      | TotalRevenue      |
-+ ------------- + ----------- + ----------- + ----------------- +
-| 1             | Robert      | Brown       | 5500.00           |
-| 7             | David       | Martinez    | 4500.00           |
-| 3             | Michael     | Smith       | 3700.00           |
-| 5             | Emily       | Davis       | 2500.00           |
-| 2             | Patricia    | Johnson     | 2000.00           |
-| 12            | Daniel      | Wilson      | 1700.00           |
-| 9             | William     | Hernandez   | 1400.00           |
-| 6             | Sarah       | Garcia      | 1200.00           |
-| 11            | Sophia      | Taylor      | 1200.00           |
-| 4             | John        | Doe         | 1000.00           |
-| 8             | Ava         | Rodriguez   | 900.00            |
-| 10            | Matthew     | Lee         | 800.00            |
-+ ------------- + ----------- + ----------- + ----------------- +
++ ------------- + ----------- + ----------- + ----------------- +<br/>
+| doctorID      | dFname      | dLname      | TotalRevenue      |<br/>
++ ------------- + ----------- + ----------- + ----------------- +<br/>
+| 1             | Robert      | Brown       | 5500.00           |<br/>
+| 7             | David       | Martinez    | 4500.00           |<br/>
+| 3             | Michael     | Smith       | 3700.00           |<br/>
+| 5             | Emily       | Davis       | 2500.00           |<br/>
+| 2             | Patricia    | Johnson     | 2000.00           |<br/>
+| 12            | Daniel      | Wilson      | 1700.00           |<br/>
+| 9             | William     | Hernandez   | 1400.00           |<br/>
+| 6             | Sarah       | Garcia      | 1200.00           |<br/>
+| 11            | Sophia      | Taylor      | 1200.00           |<br/>
+| 4             | John        | Doe         | 1000.00           |<br/>
+| 8             | Ava         | Rodriguez   | 900.00            |<br/>
+| 10            | Matthew     | Lee         | 800.00            |<br/>
++ ------------- + ----------- + ----------- + ----------------- +<br/>
 12 rows
 
 
@@ -171,13 +171,13 @@ Why?: Ensuring mentoring workload is evenly split is imporant in making sure som
 join Doctor as seniors on juniors.SeniorDoctor = seniors.doctorID
 group by seniors.doctorID
 
-+ ------------- + ----------- + ----------- + ------------- +
-| doctorID      | dFname      | dLname      | count(*)      |
-+ ------------- + ----------- + ----------- + ------------- +
-| 1             | Robert      | Brown       | 3             |
-| 2             | Patricia    | Johnson     | 3             |
-| 3             | Michael     | Smith       | 3             |
-+ ------------- + ----------- + ----------- + ------------- +
++ ------------- + ----------- + ----------- + ------------- +<br/>
+| doctorID      | dFname      | dLname      | count(*)      |<br/>
++ ------------- + ----------- + ----------- + ------------- +<br/>
+| 1             | Robert      | Brown       | 3             |<br/>
+| 2             | Patricia    | Johnson     | 3             |<br/>
+| 3             | Michael     | Smith       | 3             |<br/>
++ ------------- + ----------- + ----------- + ------------- +<br/>
 3 rows
 
 Query 5:
@@ -190,13 +190,13 @@ join Doctor on Appointment.doctorID = Doctor.doctorID
 where appointmentDate > 2024-6
 and Appointment.doctorID = 3
 
-+ ----------- + ----------- + ----------- +
-| pPhone      | pFname      | pLname      |
-+ ----------- + ----------- + ----------- +
-| 555-5678    | Sophia      | Garcia      |
-| 555-9012    | Ava         | Walker      |
-| 555-7890    | Isabella    | Rodriguez   |
-+ ----------- + ----------- + ----------- +
++ ----------- + ----------- + ----------- +<br/>
+| pPhone      | pFname      | pLname      |<br/>
++ ----------- + ----------- + ----------- +<br/>
+| 555-5678    | Sophia      | Garcia      |<br/>
+| 555-9012    | Ava         | Walker      |<br/>
+| 555-7890    | Isabella    | Rodriguez   |<br/>
++ ----------- + ----------- + ----------- +<br/>
 3 rows
 
 Query 6:
@@ -214,12 +214,12 @@ join Patient on Ward.wardID = Patient.wardID
 join Appointment on Patient.patientID = Appointment.patientID
 group by Ward.wardID)as a)
 
-+ ----------- + -------------------- +
-| wardID      | numAppointments      |
-+ ----------- + -------------------- +
-| 1           | 5                    |
-| 5           | 5                    |
-+ ----------- + -------------------- +
++ ----------- + -------------------- +<br/>
+| wardID      | numAppointments      |<br/>
++ ----------- + -------------------- +<br/>
+| 1           | 5                    |<br/>
+| 5           | 5                    |<br/>
++ ----------- + -------------------- +<br/>
 2 rows
 
 Query 7:
@@ -232,23 +232,44 @@ group by diagnosis
 having avg(totalAmount) >
 (select avg(totalAmount) from Billing)
 
-+ -------------- + ---------------- +
-| diagnosis      | averageCost      |
-+ -------------- + ---------------- +
-| Flu            | 1500.000000      |
-| Headache       | 1500.000000      |
-| Routine Check-up | 1700.000000      |
-| Check-up       | 2500.000000      |
-| Minor Cold     | 1700.000000      |
-| High blood pressure | 3000.000000      |
-+ -------------- + ---------------- +
++ -------------- + ---------------- +<br/>
+| diagnosis      | averageCost      |<br/>
++ -------------- + ---------------- +<br/>
+| Flu            | 1500.000000      |<br/>
+| Headache       | 1500.000000      |<br/>
+| Routine Check-up | 1700.000000      |<br/>
+| Check-up       | 2500.000000      |<br/>
+| Minor Cold     | 1700.000000      |<br/>
+| High blood pressure | 3000.000000      |<br/>
++ -------------- + ---------------- +<br/>
 6 rows
 
 Query 8:
 Query: Show all doctors who have not given a check-up, whether routine or otherwise
-Why?: 
+Why?: If a hospital is trying to make all their doctors split appointment types equally, they can use this to see which doctors should get new check-up appointments
 
-!!!this one has a row of all nulls and i will come back to it in a second
+> Select doctorID, dFname, dLname from Doctor
+where doctorID not in
+(Select Doctor.doctorID from Doctor
+join Appointment on Doctor.doctorID = Appointment.doctorID
+join Medical_Record on Appointment.patientID = Medical_Record.patientID
+where diagnosis regexp "Check-up")
+
++ ------------- + ----------- + ----------- +<br/>
+| doctorID      | dFname      | dLname      |<br/>
++ ------------- + ----------- + ----------- +<br/>
+| 2             | Patricia    | Johnson     |<br/>
+| 3             | Michael     | Smith       |<br/>
+| 4             | John        | Doe         |<br/>
+| 6             | Sarah       | Garcia      |<br/>
+| 7             | David       | Martinez    |<br/>
+| 8             | Ava         | Rodriguez   |<br/>
+| 10            | Matthew     | Lee         |<br/>
+| 11            | Sophia      | Taylor      |<br/>
+| 12            | Daniel      | Wilson      |<br/>
+| NULL          | NULL        | NULL        |<br/>
++ ------------- + ----------- + ----------- +<br/>
+10 rows
 
 Query 9: Show the amount of appointments associated with each department
 Why?: It can be important to see which departments are the most and least active to assign budgets
@@ -258,13 +279,13 @@ join Doctor on Department.deptID = Doctor.deptID
 join Appointment on Doctor.doctorID = Appointment.doctorID
 group by Department.deptID
 
-+ ------------- + ------------ +
-| deptName      | numApps      |
-+ ------------- + ------------ +
-| Cardiology    | 6            |
-| Neurology     | 6            |
-| Pediatrics    | 6            |
-+ ------------- + ------------ +
++ ------------- + ------------ +<br/>
+| deptName      | numApps      |<br/>
++ ------------- + ------------ +<br/>
+| Cardiology    | 6            |<br/>
+| Neurology     | 6            |<br/>
+| Pediatrics    | 6            |<br/>
++ ------------- + ------------ +<br/>
 3 rows
 
 Query 10:
@@ -278,12 +299,12 @@ select appointmentID from Prescription
 join Appointment on Prescription.patientID = Appointment.patientID)
 and not diagnosis regexp "Check-up"
 
-+ -------------- +
-| diagnosis      |
-+ -------------- +
-| Minor Cold     |
-| Flu            |
-+ -------------- +
++ -------------- +<br/>
+| diagnosis      |<br/>
++ -------------- +<br/>
+| Minor Cold     |<br/>
+| Flu            |<br/>
++ -------------- +<br/>
 2 rows
 
 ## Database Info
