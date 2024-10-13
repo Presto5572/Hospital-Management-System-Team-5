@@ -59,6 +59,36 @@ Finally, the Insurance entity captures details about the insurance providers, po
 
 <img width="570" alt="Screenshot 2024-10-12 at 9 30 41 PM" src="https://github.com/user-attachments/assets/41e1bf8d-861b-46ec-945e-cdd8e3c18d8c">
 
-## Queries
+## Querie Descriptions:
+
+Querie 1:
+
+
+Querie 2:
+
+
+Querie 3:
+
+
+Querie 4:
+
+
+Querie 5:
+
+
+Querie 6:
+
+
+Querie 7:
+
+
+Querie 8:
+
+
+Querie 9:
+
+
+Querie 10:
+
 
 ## Database Info
