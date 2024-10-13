@@ -61,6 +61,9 @@ Finally, the Insurance entity captures details about the insurance providers, po
 
 ## Query Descriptions:
 
+![image](https://github.com/user-attachments/assets/2f7a8600-9a5e-40ad-864d-6f0839067698)
+
+
 Query 1:
 
 
