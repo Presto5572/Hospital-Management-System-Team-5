@@ -113,14 +113,14 @@ join
 where
     prescriptionDate > firstPrescDate
 
-> + ----------- + ----------- + ------------- +
-| dFname      | dLname      | doctorID      |
-+ ----------- + ----------- + ------------- +
-| John        | Doe         | 4             |
-| Sarah       | Garcia      | 6             |
-| Ava         | Rodriguez   | 8             |
-| Matthew     | Lee         | 10            |
-+ ----------- + ----------- + ------------- +
+ + ----------- + ----------- + ------------- +<br/>
+| dFname      | dLname      | doctorID      |<br/>
++ ----------- + ----------- + ------------- +<br/>
+| John        | Doe         | 4             |<br/>
+| Sarah       | Garcia      | 6             |<br/>
+| Ava         | Rodriguez   | 8             |<br/>
+| Matthew     | Lee         | 10            |<br/>
++ ----------- + ----------- + ------------- +<br/>
 4 rows
 
 
