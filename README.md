@@ -68,7 +68,7 @@ Query 1:<br/>
 Find patients who underwent unexpected critical-care treatment with insurance policies that do not cover the full cost.<br/>
 Why?: Filtering allows hospitals to find a list of patients eligible for charity care programs.<br/>
 
-SELECT
+> SELECT
     Patient.patientID,
     Patient.pFname,
     Patient.pLname,
@@ -88,7 +88,8 @@ WHERE
 ORDER BY
     remainingBalance DESC;
 
-!!!for some reason this does not return anything for me
+![image](https://github.com/user-attachments/assets/f1efe208-d724-4b1e-8c16-1d06e0f1ceac)
+
 
 Query 2:<br/>
 Find all doctors who have given a prescription to a patient who already had a prescription<br/>
@@ -113,15 +114,8 @@ join
 where
     prescriptionDate > firstPrescDate
 
- + ----------- + ----------- + ------------- +<br/>
-| dFname      | dLname      | doctorID      |<br/>
-+ ----------- + ----------- + ------------- +<br/>
-| John        | Doe         | 4             |<br/>
-| Sarah       | Garcia      | 6             |<br/>
-| Ava         | Rodriguez   | 8             |<br/>
-| Matthew     | Lee         | 10            |<br/>
-+ ----------- + ----------- + ------------- +<br/>
-4 rows<br/>
+![image](https://github.com/user-attachments/assets/96745125-a782-4c8e-9625-6946a203a2b3)
+
 
 
 Query 3:<br/>
@@ -144,23 +138,8 @@ group by
 order by
     TotalRevenue desc
 
-+ ------------- + ----------- + ----------- + ----------------- +<br/>
-| doctorID      | dFname      | dLname      | TotalRevenue      |<br/>
-+ ------------- + ----------- + ----------- + ----------------- +<br/>
-| 1             | Robert      | Brown       | 5500.00           |<br/>
-| 7             | David       | Martinez    | 4500.00           |<br/>
-| 3             | Michael     | Smith       | 3700.00           |<br/>
-| 5             | Emily       | Davis       | 2500.00           |<br/>
-| 2             | Patricia    | Johnson     | 2000.00           |<br/>
-| 12            | Daniel      | Wilson      | 1700.00           |<br/>
-| 9             | William     | Hernandez   | 1400.00           |<br/>
-| 6             | Sarah       | Garcia      | 1200.00           |<br/>
-| 11            | Sophia      | Taylor      | 1200.00           |<br/>
-| 4             | John        | Doe         | 1000.00           |<br/>
-| 8             | Ava         | Rodriguez   | 900.00            |<br/>
-| 10            | Matthew     | Lee         | 800.00            |<br/>
-+ ------------- + ----------- + ----------- + ----------------- +<br/>
-12 rows<br/>
+![image](https://github.com/user-attachments/assets/a2dc25f1-799c-4121-b1f7-8102c5dd0d26)
+
 
 
 Query 4:<br/>
@@ -171,14 +150,8 @@ Why?: Ensuring mentoring workload is evenly split is imporant in making sure som
 join Doctor as seniors on juniors.SeniorDoctor = seniors.doctorID
 group by seniors.doctorID
 
-+ ------------- + ----------- + ----------- + ------------- +<br/>
-| doctorID      | dFname      | dLname      | count(*)      |<br/>
-+ ------------- + ----------- + ----------- + ------------- +<br/>
-| 1             | Robert      | Brown       | 3             |<br/>
-| 2             | Patricia    | Johnson     | 3             |<br/>
-| 3             | Michael     | Smith       | 3             |<br/>
-+ ------------- + ----------- + ----------- + ------------- +<br/>
-3 rows<br/>
+![image](https://github.com/user-attachments/assets/4ca3843b-443e-4dec-b843-634184702ad4)
+
 
 Query 5:<br/>
 Query: show the names and phone #s of patients who have seen a certain doctor after a certain date<br/>
@@ -190,14 +163,7 @@ join Doctor on Appointment.doctorID = Doctor.doctorID
 where appointmentDate > 2024-6
 and Appointment.doctorID = 3
 
-+ ----------- + ----------- + ----------- +<br/>
-| pPhone      | pFname      | pLname      |<br/>
-+ ----------- + ----------- + ----------- +<br/>
-| 555-5678    | Sophia      | Garcia      |<br/>
-| 555-9012    | Ava         | Walker      |<br/>
-| 555-7890    | Isabella    | Rodriguez   |<br/>
-+ ----------- + ----------- + ----------- +<br/>
-3 rows<br/>
+![image](https://github.com/user-attachments/assets/ae4afcbf-9de6-4d10-aa59-caf0214cc988)
 
 Query 6:<br/>
 Query: 3 show which wards have had the most appointments<br/>
@@ -214,13 +180,8 @@ join Patient on Ward.wardID = Patient.wardID
 join Appointment on Patient.patientID = Appointment.patientID
 group by Ward.wardID)as a)
 
-+ ----------- + -------------------- +<br/>
-| wardID      | numAppointments      |<br/>
-+ ----------- + -------------------- +<br/>
-| 1           | 5                    |<br/>
-| 5           | 5                    |<br/>
-+ ----------- + -------------------- +<br/>
-2 rows<br/>
+![image](https://github.com/user-attachments/assets/f0ff0cb4-b567-4f81-b4a5-55b7b1c8ce08)
+
 
 Query 7:<br/>
 Query: Show the the average costs associated with each diagnosis that are above the average costs of all appointments<br/>
@@ -232,17 +193,8 @@ group by diagnosis
 having avg(totalAmount) >
 (select avg(totalAmount) from Billing)
 
-+ -------------- + ---------------- +<br/>
-| diagnosis      | averageCost      |<br/>
-+ -------------- + ---------------- +<br/>
-| Flu            | 1500.000000      |<br/>
-| Headache       | 1500.000000      |<br/>
-| Routine Check-up | 1700.000000      |<br/>
-| Check-up       | 2500.000000      |<br/>
-| Minor Cold     | 1700.000000      |<br/>
-| High blood pressure | 3000.000000      |<br/>
-+ -------------- + ---------------- +<br/>
-6 rows<br/>
+![image](https://github.com/user-attachments/assets/6f4a7ab2-e455-4f18-be40-878bda6a2480)
+
 
 Query 8:<br/>
 Query: Show all doctors who have not given a check-up, whether routine or otherwise<br/>
@@ -255,21 +207,8 @@ join Appointment on Doctor.doctorID = Appointment.doctorID
 join Medical_Record on Appointment.patientID = Medical_Record.patientID
 where diagnosis regexp "Check-up")
 
-+ ------------- + ----------- + ----------- +<br/>
-| doctorID      | dFname      | dLname      |<br/>
-+ ------------- + ----------- + ----------- +<br/>
-| 2             | Patricia    | Johnson     |<br/>
-| 3             | Michael     | Smith       |<br/>
-| 4             | John        | Doe         |<br/>
-| 6             | Sarah       | Garcia      |<br/>
-| 7             | David       | Martinez    |<br/>
-| 8             | Ava         | Rodriguez   |<br/>
-| 10            | Matthew     | Lee         |<br/>
-| 11            | Sophia      | Taylor      |<br/>
-| 12            | Daniel      | Wilson      |<br/>
-| NULL          | NULL        | NULL        |<br/>
-+ ------------- + ----------- + ----------- +<br/>
-10 rows<br/>
+![image](https://github.com/user-attachments/assets/4e1c3a49-55d4-475b-8fad-615d6cb1baeb)
+
 
 Query 9: <br/>
 Show the amount of appointments associated with each department<br/>
@@ -280,14 +219,8 @@ join Doctor on Department.deptID = Doctor.deptID
 join Appointment on Doctor.doctorID = Appointment.doctorID
 group by Department.deptID
 
-+ ------------- + ------------ +<br/>
-| deptName      | numApps      |<br/>
-+ ------------- + ------------ +<br/>
-| Cardiology    | 6            |<br/>
-| Neurology     | 6            |<br/>
-| Pediatrics    | 6            |<br/>
-+ ------------- + ------------ +<br/>
-3 rows<br/>
+![image](https://github.com/user-attachments/assets/e9276c51-27ea-4558-83b4-64446ad3147d)
+
 
 Query 10:<br/>
 Query: Show given diagnosises that did not lead to a prescription<br/>
@@ -300,12 +233,7 @@ select appointmentID from Prescription
 join Appointment on Prescription.patientID = Appointment.patientID)
 and not diagnosis regexp "Check-up"
 
-+ -------------- +<br/>
-| diagnosis      |<br/>
-+ -------------- +<br/>
-| Minor Cold     |<br/>
-| Flu            |<br/>
-+ -------------- +<br/>
-2 rows<br/>
+![image](https://github.com/user-attachments/assets/aa6b359a-7a55-4401-91ec-2f713415210c)
+
 
 ## Database Info
