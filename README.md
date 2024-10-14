@@ -91,8 +91,7 @@ Why?: This information provides insights into doctor performance and revenue gen
 ![image](https://github.com/user-attachments/assets/2d224b58-2bf2-426f-9a6b-f6f6b14f3b0a)
 
 
-![image](https://github.com/user-attachments/assets/a2dc25f1-799c-4121-b1f7-8102c5dd0d26)
-
+![image](https://github.com/user-attachments/assets/24815b21-f89d-4428-8b4f-27166e49d0a2)
 
 
 Query 4:<br/>
